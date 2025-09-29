@@ -1,4 +1,10 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+} from "react";
 import api from "../api/api";
 
 const AuthContext = createContext();
@@ -8,27 +14,27 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const checkLogin = async () => {
-      if (token) {
-        try {
-          const response = await api.get("/users/me");
-          setUser(response.data);
-        } catch (error) {
-          localStorage.removeItem("token");
-          setToken(null);
-          setUser(null);
-        }
+  const refreshUser = useCallback(async () => {
+    if (token) {
+      try {
+        console.log("Refreshing user data...");
+        const response = await api.get("/users/me");
+        setUser(response.data);
+      } catch (error) {
+        console.error("Failed to refresh user, logging out.", error);
+        logout();
       }
-      setLoading(false);
-    };
-    checkLogin();
+    }
   }, [token]);
+
+  useEffect(() => {
+    setLoading(true);
+    refreshUser().finally(() => setLoading(false));
+  }, [refreshUser]);
 
   const login = async (email, password) => {
     const response = await api.post("/auth/login", { email, password });
     const { accessToken } = response.data;
-
     localStorage.setItem("token", accessToken);
     setToken(accessToken);
   };
@@ -45,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     login,
     logout,
+    refreshUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

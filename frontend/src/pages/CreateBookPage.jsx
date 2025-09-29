@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import { useAuth } from "../context/AuthContext";
 import "./CreateBookPage.css";
 
 const GENRES = [
@@ -18,7 +19,9 @@ const CreateBookPage = () => {
   const [genre, setGenre] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const { refreshUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +31,16 @@ const CreateBookPage = () => {
     }
     setError("");
     setLoading(true);
+
     try {
-      const response = await api.post("/books", { title, synopsis, genre });
+      const response = await api.post("/books", {
+        title,
+        synopsis,
+        genre,
+      });
+
+      await refreshUser();
+
       const newBookId = response.data.id;
       navigate(`/books/${newBookId}`);
     } catch (err) {
@@ -50,7 +61,6 @@ const CreateBookPage = () => {
             virá depois.
           </p>
         </div>
-
         <form onSubmit={handleSubmit}>
           <div className="form-step">
             <label htmlFor="title">1. Qual o título do seu livro?</label>
@@ -63,7 +73,6 @@ const CreateBookPage = () => {
               required
             />
           </div>
-
           <div className="form-step">
             <label>2. Em qual gênero ele se encaixa?</label>
             <div className="genre-selection">
@@ -81,7 +90,6 @@ const CreateBookPage = () => {
               ))}
             </div>
           </div>
-
           <div className="form-step">
             <label htmlFor="synopsis">3. Descreva a sinopse</label>
             <textarea
@@ -93,11 +101,9 @@ const CreateBookPage = () => {
               required
             />
           </div>
-
           <button type="submit" className="submit-button" disabled={loading}>
             {loading ? "Criando..." : "Dar Vida à História"}
           </button>
-
           {error && <p className="error-message-create">{error}</p>}
         </form>
       </div>

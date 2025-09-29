@@ -6,7 +6,8 @@ import "./BookPage.css";
 
 const BookPage = () => {
   const { id: bookId } = useParams();
-  const { user } = useAuth();
+  const { user, refreshUser } = useAuth();
+
   const [book, setBook] = useState(null);
   const [chapters, setChapters] = useState([]);
   const [contributions, setContributions] = useState([]);
@@ -22,7 +23,6 @@ const BookPage = () => {
         api.get(`/books/${bookId}/chapters`),
         api.get(`/books/${bookId}/contributions`),
       ]);
-
       setBook(bookRes.data);
       setChapters(chaptersRes.data);
       setContributions(contributionsRes.data);
@@ -43,7 +43,6 @@ const BookPage = () => {
       alert("Você precisa estar logado para votar!");
       return;
     }
-
     try {
       const response = await api.post(`/contributions/${contributionId}/votes`);
       const updatedContributions = contributions.map((contrib) => {
@@ -65,13 +64,13 @@ const BookPage = () => {
       alert("Sua contribuição não pode estar vazia.");
       return;
     }
-
     try {
       await api.post(`/books/${bookId}/contributions`, {
         content: newContributionContent,
       });
       setNewContributionContent("");
       fetchData();
+      await refreshUser();
     } catch (error) {
       console.error("Erro ao enviar contribuição:", error);
       alert("Não foi possível enviar sua contribuição.");
@@ -86,19 +85,34 @@ const BookPage = () => {
     ) {
       return;
     }
-
     try {
       await api.post(`/contributions/${contributionId}/accept`);
       fetchData();
+      await refreshUser();
     } catch (error) {
       console.error("Erro ao aceitar contribuição:", error);
       alert("Não foi possível oficializar este capítulo.");
     }
   };
 
-  if (loading) return <p>Carregando história...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-  if (!book) return <p>Livro não encontrado.</p>;
+  if (loading)
+    return (
+      <p style={{ textAlign: "center", marginTop: "5rem" }}>
+        Carregando história...
+      </p>
+    );
+  if (error)
+    return (
+      <p style={{ color: "red", textAlign: "center", marginTop: "5rem" }}>
+        {error}
+      </p>
+    );
+  if (!book)
+    return (
+      <p style={{ textAlign: "center", marginTop: "5rem" }}>
+        Livro não encontrado.
+      </p>
+    );
 
   const isAuthor = user && user.id === book.authorId;
 
