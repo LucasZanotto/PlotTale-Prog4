@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lucasabatizanotto/PlotTale-Prog4/main/assets/logo.png" alt="PlotTale Logo" width="150"/>
   <h1>PlotTale</h1>
   <p><strong>Onde Histórias Ganham Vida em Colaboração</strong></p>
   <p>
