@@ -1,17 +1,30 @@
 <div align="center">
   <h1>PlotTale</h1>
   <p><strong>Onde Histórias Ganham Vida em Colaboração</strong></p>
-
-  <!-- Badges de Tecnologia -->
+  <p>
+    <a href="https://plottale.onrender.com" target="_blank">
+      <img src="https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge" alt="Status Online">
+    </a>
+  </p>
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
     <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
     <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">
     <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma">
-    <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   </p>
 </div>
+
+---
+
+## 🚀 Projeto Online!
+
+**O PlotTale está no ar!** Você pode acessar a aplicação completa e funcional no seguinte endereço:
+
+### **[https://plottale.onrender.com](https://plottale.onrender.com)**
+
+<small>_**Nota:** A aplicação está hospedada em um plano gratuito. O primeiro carregamento pode levar até 30 segundos enquanto o servidor "acorda". Agradecemos a sua paciência!_</small>
 
 ---
 
@@ -35,7 +48,7 @@ A principal funcionalidade do sistema é o seu processo democrático de seleçã
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 Este projeto foi construído com uma stack moderna e robusta, separando claramente as responsabilidades entre o frontend e o backend.
 
@@ -51,13 +64,13 @@ Este projeto foi construído com uma stack moderna e robusta, separando claramen
 *   **Framework:** **NestJS**, uma estrutura Node.js progressiva para construir aplicações eficientes e escaláveis.
 *   **Linguagem:** TypeScript.
 *   **ORM:** **Prisma** para uma interação type-safe e intuitiva com o banco de dados.
-*   **Banco de Dados:** **MySQL**.
+*   **Banco de Dados:** **PostgreSQL**.
 *   **Autenticação:** Tokens JWT com `passport-jwt`.
-*   **Documentação da API:** Swagger (OpenAPI) para uma documentação interativa.
+*   **Hospedagem:** **Render**.
 
 ---
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Como Executar o Projeto Localmente
 
 Para rodar o PlotTale em seu ambiente local, siga os passos abaixo.
 
@@ -65,11 +78,11 @@ Para rodar o PlotTale em seu ambiente local, siga os passos abaixo.
 
 *   [Node.js](https://nodejs.org/en/) (versão 16 ou superior)
 *   [Git](https://git-scm.com)
-*   Um servidor de banco de dados **MySQL** rodando localmente.
+*   Um servidor de banco de dados **PostgreSQL** rodando localmente (Docker é recomendado).
 
 ### **1. Clone o Repositório**
 ```bash
-git clone https://github.com/SEU_USUARIO/PlotTale-Prog4.git
+git clone https://github.com/lucasabatizanotto/PlotTale-Prog4.git
 cd PlotTale-Prog4
 ```
 
@@ -82,9 +95,9 @@ cd backend
 # Instale as dependências
 npm install
 
-# Crie um arquivo .env na raiz da pasta 'backend' e configure sua DATABASE_URL
+# Crie um arquivo .env na raiz da pasta 'backend' e configure sua DATABASE_URL para o PostgreSQL
 # Exemplo de .env:
-# DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/plottale_db"
+# DATABASE_URL="postgresql://postgres:root@localhost:5432/plottale_db"
 # JWT_SECRET="SEU_SEGREDO_SUPER_SECRETO"
 
 # Aplique as migrações do Prisma para criar as tabelas no banco
@@ -119,9 +132,9 @@ Este projeto foi desenvolvido com paixão pelo time **DevFlow**.
 
 ---
 
-## 🎥 Video da aplicação em funcionamento
+## 🎥 Vídeo da Aplicação em Funcionamento
 
-* [https://youtu.be/45FXGuCjhog](https://youtu.be/45FXGuCjhog)
+*   [https://youtu.be/45FXGuCjhog](https://youtu.be/45FXGuCjhog)
 
 <div align="center">
   <strong>Obrigado por visitar o nosso projeto!</strong>
