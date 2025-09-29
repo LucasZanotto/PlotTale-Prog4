@@ -117,6 +117,12 @@ Este projeto foi desenvolvido com paixão pelo time **DevFlow**.
 
 *   **Lucas Abati Zanotto** - [*lucasabatizanotto@gmail.com*](mailto:lucasabatizanotto@gmail.com)
 
+---
+
+## 🎥 Video da aplicação em funcionamento
+
+* [https://youtu.be/45FXGuCjhog](https://youtu.be/45FXGuCjhog)
+
 <div align="center">
   <strong>Obrigado por visitar o nosso projeto!</strong>
 </div>
