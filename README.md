@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="URL_DA_SUA_LOGO" alt="PlotTale Logo" width="150"/>
   <h1>PlotTale</h1>
   <p><strong>Onde Histórias Ganham Vida em Colaboração</strong></p>
 
@@ -12,11 +11,6 @@
     <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   </p>
-</div>
-
-<!-- GIF de Demonstração (Recomendado) -->
-<div align="center">
-  <img src="URL_DO_SEU_GIF_DE_DEMONSTRAÇÃO" alt="Demonstração do PlotTale em ação">
 </div>
 
 ---
