@@ -1,9 +1,3 @@
-Com certeza! Peço desculpas se o formato anterior não ficou claro.
-
-Aqui está o conteúdo completo, formatado puramente em Markdown, pronto para ser copiado e colado diretamente no seu arquivo `README.md` no GitHub ou em qualquer editor de Markdown.
-
----
-
 <div align="center">
   <img src="URL_DA_SUA_LOGO" alt="PlotTale Logo" width="150"/>
   <h1>PlotTale</h1>
