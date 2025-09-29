@@ -1,0 +1,93 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// --- ENUM ---
+enum ContributionStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+// --- MODELOS ---
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  about     String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  books          Book[]
+  chapters       Chapter[]
+  contributions  Contribution[]
+  votes          Vote[]
+}
+
+model Book {
+  id        String   @id @default(uuid())
+  title     String
+  synopsis  String   @db.Text
+  genre     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId      String
+  author        User           @relation(fields: [authorId], references: [id])
+  
+  chapters      Chapter[]
+  contributions Contribution[]
+}
+
+model Chapter {
+  id            String   @id @default(uuid())
+  title         String
+  content       String   @db.Text
+  chapterNumber Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  bookId        String
+  book          Book     @relation(fields: [bookId], references: [id])
+
+  authorId      String
+  author        User     @relation(fields: [authorId], references: [id])
+}
+
+model Contribution {
+  id        String             @id @default(uuid())
+  content   String             @db.Text
+  status    ContributionStatus @default(PENDING)
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+
+  bookId    String
+  book      Book               @relation(fields: [bookId], references: [id])
+
+  authorId  String
+  author    User               @relation(fields: [authorId], references: [id])
+
+  votes     Vote[]
+}
+
+model Vote {
+  id             String       @id @default(uuid())
+  createdAt      DateTime     @default(now())
+
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+
+  contributionId String
+  contribution   Contribution @relation(fields: [contributionId], references: [id])
+
+  @@unique([userId, contributionId]) // Garante que um usuário só pode votar uma vez por contribuição
+}
