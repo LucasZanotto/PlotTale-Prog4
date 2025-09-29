@@ -1,11 +1,4 @@
-Com certeza! Peço desculpas se o formato anterior não ficou claro.
-
-Aqui está o conteúdo completo, formatado puramente em Markdown, pronto para ser copiado e colado diretamente no seu arquivo `README.md` no GitHub ou em qualquer editor de Markdown.
-
----
-
 <div align="center">
-  <img src="URL_DA_SUA_LOGO" alt="PlotTale Logo" width="150"/>
   <h1>PlotTale</h1>
   <p><strong>Onde Histórias Ganham Vida em Colaboração</strong></p>
 
@@ -18,11 +11,6 @@ Aqui está o conteúdo completo, formatado puramente em Markdown, pronto para se
     <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   </p>
-</div>
-
-<!-- GIF de Demonstração (Recomendado) -->
-<div align="center">
-  <img src="URL_DO_SEU_GIF_DE_DEMONSTRAÇÃO" alt="Demonstração do PlotTale em ação">
 </div>
 
 ---
@@ -128,6 +116,12 @@ Agora, basta abrir **`http://localhost:5173`** no seu navegador para ver o PlotT
 Este projeto foi desenvolvido com paixão pelo time **DevFlow**.
 
 *   **Lucas Abati Zanotto** - [*lucasabatizanotto@gmail.com*](mailto:lucasabatizanotto@gmail.com)
+
+---
+
+## 🎥 Video da aplicação em funcionamento
+
+* [https://youtu.be/45FXGuCjhog](https://youtu.be/45FXGuCjhog)
 
 <div align="center">
   <strong>Obrigado por visitar o nosso projeto!</strong>
